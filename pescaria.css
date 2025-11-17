@@ -1,0 +1,52 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.bg-movimento {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 100%;
+    background-image: url('https://classic.exame.com/wp-content/uploads/2024/07/MG_6702.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.45); 
+    animation: mover 22s ease-in-out infinite alternate;
+}
+
+@keyframes mover {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-12%); }
+}
+
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+    text-shadow: 2px 2px 8px black;
+}
+
+a button {
+    width: 200px;
+    padding: 15px;
+    margin: 10px;
+    font-size: 22px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #e09900;
+    background: linear-gradient(0deg, rgba(224, 153, 0, 1) 0%, rgba(253, 236, 45, 1) 100%);
+}
+
+a button:hover{
+    border: solid 4px rgb(143, 93, 0);
+}
