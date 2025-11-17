@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styleflappypoa.css">
+  <link rel="shortcut icon" href="./img/favicon-16x16.png" type="image/x-icon">
+  <title>Flappy Poa</title>
+</head>
+<body>
+    <div class="bg-wrap" aria-hidden="true">
+        <div class="bg-image"></div>
+        <div class="bg-overlay"></div>
+      </div>
+
+  <a class="exit" href="./flappypoa">Sair</a>
+  <div class="ui">
+    Pontuação: <span id="score">0</span>
+  </div>
+  <div class="centerMsg" id="message">
+    <div class="button" id="startBtn">Começar</div>
+  </div>
+  <canvas id="game" width="480" height="680"></canvas>
+
+  <script src="./script.js"></script>
+</body>
+</html>

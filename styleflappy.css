@@ -1,0 +1,84 @@
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+
+.bg-wrap{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-1;
+}
+
+.bg-image{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:120%;
+  height:120%;
+  transform:translate(-50%,-50%);
+  background-image:url('https://static.vecteezy.com/ti/fotos-gratis/p2/7465826-vista-aerea-de-porto-alegre-rs-brasil-acorianos-monumento-edificio-administrativo-fernando-ferrari-foto.jpg');
+  background-size:cover;
+  background-position:center;
+  will-change:transform;
+  filter:brightness(0.78) saturate(0.98);
+  animation: sway 7s ease-in-out infinite alternate;
+}
+
+.bg-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,0.22), rgba(0,0,0,0.28));
+  pointer-events:none;
+}
+
+@keyframes sway{
+  from{ transform: translate(-52%,-50%) scale(1.02) }
+  to  { transform: translate(-48%,-50%) scale(1.02) }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .bg-image{ animation: none; }
+}
+
+@media (max-width:420px){
+  .menu{ padding:20px; }
+  .btn{ padding:10px 16px }
+}
+
+#tituloflappy{
+    display: block;
+    float: left;
+    margin-left: 26%;
+}
+
+#botoesflappy{
+  display: block;
+  float: left;
+  width: 100%;
+  height: auto;
+}
+#btnjogar{
+  font-size: xx-large;
+  height: 100px;
+  width: 200px;
+  background-color: white;
+  border: solid 4px lightskyblue;
+  margin-left: 32%;
+}
+#btnsair{
+  font-size: xx-large;
+  margin-left: 2%;
+  height: 100px;
+  width: 200px;
+
+  background-color: white;
+  border: solid 4px lightskyblue;
+}
+
+#btnjogar:hover{
+  box-shadow:  10px 5px 5px lightskyblue;
+  background-color: #e4e4e4;
+}
+#btnsair:hover{
+  box-shadow:  10px 5px 5px lightskyblue;
+  background-color: #e4e4e4;
+}

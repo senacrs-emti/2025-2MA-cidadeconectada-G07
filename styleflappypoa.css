@@ -1,0 +1,103 @@
+html,body{
+    height:100%;margin:0;overflow:hidden;font-family:Inter,system-ui,Arial; font-size: xx-large;
+    background-size:cover;
+  }
+  canvas{
+    display:block;
+    margin:auto;
+    background:rgb(135, 215, 255);
+    box-shadow:0 10px 30px rgba(0,0,0,.2);background: #2518db;
+    background: linear-gradient(182deg, rgba(37, 24, 219, 1) 0%, rgba(17, 114, 240, 1) 35%, rgba(87, 227, 255, 1) 100%);
+  }
+  .ui{
+    position:fixed;
+    left:16px;
+    top:16px;
+    color:#fff;
+    text-shadow:0 1px 3px rgba(0,0,0,.6);
+    font-weight:bold;}
+ 
+  .centerMsg{
+    position:fixed;
+    left:50%;
+    top:40%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    font-size: larger;
+    text-shadow:0 3px 3px rgb(0, 0, 0);
+    color:#fff;}
+  
+  .button{
+    background:rgb(255, 255, 255);
+    padding:8px 14px;
+    margin-top:10px;
+    color: black;
+    cursor:pointer;
+    display:inline-block;
+    text-decoration: none;
+    text-shadow: none;
+    width: 200px;
+    height: px;
+      border: solid 4px lightskyblue;
+}
+.button:hover{
+    background-color: #e4e4e4;
+    box-shadow:  10px 5px 5px lightskyblue;
+}
+  
+  .exit{
+    position:fixed;
+    right:20px;
+    top:20px;
+    background:rgba(255,255,255,0.2);
+    color:#fff;
+    padding:8px 14px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:background .3s;
+  }
+  .exit:hover{background:rgba(255,255,255,0.35);}
+
+  .bg-wrap{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
+  }
+  
+  .bg-image{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:120%;
+    height:120%;
+    transform:translate(-50%,-50%);
+    background-image:url('https://static.vecteezy.com/ti/fotos-gratis/p2/7465826-vista-aerea-de-porto-alegre-rs-brasil-acorianos-monumento-edificio-administrativo-fernando-ferrari-foto.jpg');
+    background-size:cover;
+    background-position:center;
+    will-change:transform;
+    filter:brightness(0.78) saturate(0.98);
+    animation: sway 7s ease-in-out infinite alternate;
+  }
+  
+  .bg-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(rgba(0,0,0,0.22), rgba(0,0,0,0.28));
+    pointer-events:none;
+  }
+  
+  @keyframes sway{
+    from{ transform: translate(-52%,-50%) scale(1.02) }
+    to  { transform: translate(-48%,-50%) scale(1.02) }
+  }
+  
+  @media (prefers-reduced-motion: reduce){
+    .bg-image{ animation: none; }
+  }
+  
+  @media (max-width:420px){
+    .menu{ padding:20px; }
+    .btn{ padding:10px 16px }
+  }
