@@ -1,0 +1,275 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pescaria no Guaiba</title>
+  <style>
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-image: url(https://classic.exame.com/wp-content/uploads/2024/07/MG_6702.jpg);
+      font-family: 'Comic Sans MS', sans-serif;
+      color: white;
+    }
+
+    canvas {
+      display: block;
+      margin: 0 auto;
+      background: linear-gradient(#442514f7, #2a3e29);
+      border: 4px solid #fff;
+    }
+
+    #info {
+      position: absolute;
+      top: 10px;
+      left: 200px;
+      font-size: 22px;
+      text-shadow: 2px 2px 4px #310909;
+    }
+
+    #gameOver {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(5, 12, 10, 0.249);
+      padding: 20px 40px;
+      border-radius: 10px;
+      display: none;
+      text-align: center;
+    }
+
+   
+    #botoes {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      display: grid;
+
+      
+      gap: 6px;
+    }
+
+    .btn {
+      width: 110px;
+      height: 50px;
+      padding: 10px 15px;
+      background: rgba(80, 0, 252, 0.808);
+      color: white;
+      border: 2px solid #fff;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background: rgba(47, 255, 130, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+
+<div id="botoes">
+  <button class="btn" onclick="history.back()"  > <a href="https://www.freecodecamp.org/">Voltar</a></button>
+  <button class="btn" onclick="reiniciarJogo()"> Jogar Novamente</button>
+</div>
+
+<canvas id="game" width="1000" height="700"></canvas>
+<div id="info">Peixes: 0 ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Vidas: 3</div>
+<div id="gameOver"></div>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+let hookY = 100;
+let mouseY = 100;
+let linhaInicioY = 50;
+
+let pontuacao = 0;
+let iscas = 3;
+let tempo = 0;
+let jogando = true;
+let peixes = [];
+let obstaculos = [];
+let faseFinal = false;
+let mullet = null;
+let dificuldade = 1;
+
+const centerX = () => canvas.width / 2;
+
+
+const peixeImg = new Image();
+peixeImg.src = "https://i.pinimg.com/originals/e2/41/fb/e241fbec37c0fd1daa47ecb2d266795b.png";
+
+const tubaraoImg = new Image();
+tubaraoImg.src = "https://cdn.pixabay.com/photo/2018/09/25/17/45/hai-3702727_1280.png";
+
+const caranguejoImg = new Image();
+caranguejoImg.src = "https://static.vecteezy.com/system/resources/thumbnails/066/088/945/small/a-vibrant-orange-crab-with-large-pincers-and-a-distinct-shell-showcasing-its-detailed-features-and-formidable-claws-png.png";
+
+const aguavivaImg = new Image();
+aguavivaImg.src = "https://apoioentrega.vteximg.com.br/arquivos/ids/851829/185522_0.png?v=638595321538500000";
+
+const geloImg = new Image();
+geloImg.src = "marselopescante.png";
+
+
+canvas.addEventListener("mousemove", e => {
+  const rect = canvas.getBoundingClientRect();
+  mouseY = e.clientY - rect.top;
+});
+
+
+function criarEntidade() {
+  if (!jogando) return;
+
+  const lado = Math.random() < 0.5 ? "esquerda" : "direita";
+  const direcao = lado === "esquerda" ? 1 : -1;
+  const xInicial = lado === "esquerda" ? -80 : canvas.width + 80;
+  const yPos = 200 + Math.random() * 400;
+  const chance = Math.random();
+
+  if (chance < 0.04) {
+    peixes.push({ tipo: "comum", x: xInicial, y: yPos, velocidade: 2.5, direcao });
+  } else if (chance < 0.10) {
+    const tipos = ["tubarao", "caranguejo", "aguaviva"];
+    const tipo = tipos[Math.floor(Math.random() * tipos.length)];
+    obstaculos.push({ tipo, x: xInicial, y: yPos, velocidade: 2.4, direcao });
+  }
+}
+
+function atualizar() {
+  if (!jogando) return;
+
+  hookY += (mouseY - hookY) * 0.11;
+  tempo++;
+
+  if (Math.random() < 0.12) criarEntidade();
+
+  peixes.forEach(p => p.x += p.velocidade * p.direcao);
+  obstaculos.forEach(o => o.x += o.velocidade * o.direcao);
+
+  peixes = peixes.filter(p => p.x > -200 && p.x < canvas.width + 200);
+  obstaculos = obstaculos.filter(o => o.x > -200 && o.x < canvas.width + 200);
+
+  peixes.forEach(p => {
+    if (Math.abs(p.x - centerX()) < 18 && Math.abs(p.y - hookY) < 18) {
+      pontuacao++;
+      peixes = peixes.filter(pe => pe !== p);
+      atualizarHUD();
+    }
+  });
+
+  obstaculos.forEach(o => {
+    if (Math.abs(o.x - centerX()) < 22 && Math.abs(o.y - hookY) < 22) perderIsca(o);
+  });
+}
+
+function perderIsca(o) {
+  obstaculos = obstaculos.filter(x => x !== o);
+  iscas--;
+  atualizarHUD();
+  if (iscas <= 0) fimDeJogo();
+}
+
+function fimDeJogo() {
+  jogando = false;
+  const g = document.getElementById("gameOver");
+  g.style.display = "block";
+  g.innerHTML = ` Suas vidas acabaram!<br>Pontuação Final: ${pontuacao}<br>`;
+}
+
+function atualizarHUD() {
+  document.getElementById("info").innerText =
+    `Peixes: ${pontuacao} ‎ ‎ ‎ ‎ ‎ ‎ ‎ Vidas: ${iscas}`;
+}
+
+function desenhar() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.beginPath();
+  ctx.moveTo(0, 50);
+  ctx.lineTo(canvas.width, 50);
+  ctx.strokeStyle = "#e1f5fe";
+  ctx.lineWidth = 4;
+  ctx.stroke();
+
+  if (geloImg.complete) {
+    ctx.drawImage(geloImg, centerX() - 50, -10, 100, 80);
+  }
+
+  ctx.beginPath();
+  ctx.moveTo(centerX(), linhaInicioY);
+  ctx.lineTo(centerX(), hookY);
+  ctx.strokeStyle = "#fff";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(centerX(), hookY, 6, 0, Math.PI * 2);
+  ctx.fillStyle = "yellow";
+  ctx.fill();
+
+  peixes.forEach(p => {
+    ctx.save();
+    if (p.direcao === -1) {
+      ctx.scale(-1, 1);
+      ctx.drawImage(peixeImg, -p.x - 25, p.y - 15, 50, 30);
+    } else {
+      ctx.drawImage(peixeImg, p.x - 25, p.y - 15, 50, 30);
+    }
+    ctx.restore();
+  });
+
+  obstaculos.forEach(o => {
+    let img = null;
+    if (o.tipo === "tubarao") img = tubaraoImg;
+    if (o.tipo === "caranguejo") img = caranguejoImg;
+    if (o.tipo === "aguaviva") img = aguavivaImg;
+
+    if (img && img.complete) {
+      ctx.save();
+      if (o.direcao === -1) {
+        ctx.scale(-1, 1);
+        ctx.drawImage(img, -o.x - 40, o.y - 30, 80, 60);
+      } else {
+        ctx.drawImage(img, o.x - 40, o.y - 30, 80, 60);
+      }
+      ctx.restore();
+    }
+  });
+}
+
+function loop() {
+  atualizar();
+  desenhar();
+  if (jogando) requestAnimationFrame(loop);
+}
+
+loop();
+
+
+
+function reiniciarJogo() {
+  pontuacao = 0;
+  iscas = 3;
+  tempo = 0;
+  jogando = true;
+  peixes = [];
+  obstaculos = [];
+  faseFinal = false;
+  mullet = null;
+
+  document.getElementById("gameOver").style.display = "none";
+  atualizarHUD();
+  loop();
+}
+
+</script>
+
+</body>
+</html>
