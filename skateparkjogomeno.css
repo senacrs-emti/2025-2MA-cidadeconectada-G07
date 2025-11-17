@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+.slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.4);
+    animation: slide 32s infinite;
+}
+
+@keyframes slide {
+    0%   { background-image: url('https://p2.trrsf.com/image/fget/cf/1200/630/middle/images.terra.com/2022/04/29/740073528-626b21d602b9f.jpeg'); }
+    12%  { background-image: url('https://www.rbsdirect.com.br/imagesrc/35584008.jpg?w=1200&h=630&a=c&version=1575255600'); }
+    25%  { background-image: url('https://s2-g1.glbimg.com/Xi3AWo3Y9xfryyAzLMRg0rA91cM=/1920x0/filters:format(jpeg)/https://i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2025/8/A/hP6GpnSn6BqKY2o2J64Q/g1-96-.jpg'); }
+    37%  { background-image: url('https://folhadoabc.com.br/wp-content/uploads/2025/03/PHOTO-2025-03-29-18-31-57.jpg'); }
+    50%  { background-image: url('https://www.estadao.com.br/resizer/v2/RBURTWLTAJGV5OGJNNNMLJHLCE.jpg?quality=80&auth=fbd2c61cab222df9ec67981ec52dad35520398bc484f6ad1d8780a409f86afee&width=380'); }
+    62%  { background-image: url('https://img.redbull.com/images/c_limit,w_1500,h_1000/f_auto,q_auto/redbullcom/2025/5/27/ygd0gtkxrqw1ytvgir9k/yndiara-asp-stu-pro-tour-porto-alegre-2025-publico-do-skate'); }
+    75%  { background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdGqUIchnRUXjGhzjxsXM31Tt5kZMpiOeWoQ&s'); }
+    87%  { background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFvvlsBepSAUyqedBnCfWw7xKNZjFd0IkVWA&s'); }
+    100% { background-image: url('https://p2.trrsf.com/image/fget/cf/1200/630/middle/images.terra.com/2022/04/29/740073528-626b21d602b9f.jpeg'); }
+}
+
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+a button {
+    width: 200px;
+    padding: 15px;
+    margin: 10px;
+    font-size: 20px;
+    border: solid 4px black;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+
+a button:hover {
+    background: white;
+    transform: scale(1.05);
+}
