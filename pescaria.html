@@ -10,7 +10,7 @@
       margin: 0;
       overflow: hidden;
       background-image: url(https://classic.exame.com/wp-content/uploads/2024/07/MG_6702.jpg);
-      font-family: 'Comic Sans MS', sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       color: white;
     }
 
@@ -34,9 +34,9 @@
       top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(5, 12, 10, 0.249);
+      background: rgba(5, 12, 10, 0.733);
       padding: 20px 40px;
-      border-radius: 10px;
+      border: solid 4px white;
       display: none;
       text-align: center;
     }
@@ -52,30 +52,23 @@
       gap: 6px;
     }
 
-    .btn {
-      width: 110px;
-      height: 50px;
-      padding: 10px 15px;
-      background: rgba(80, 0, 252, 0.808);
-      color: white;
-      border: 2px solid #fff;
-      border-radius: 3px;
-      cursor: pointer;
-      font-size: 16px;
+    button{
+      width: 200px;
+      height: 60px;
+      border: none;
+      margin-top: 2%;
+      margin-bottom: 3%;
+      background: #e09900;
+      background: linear-gradient(0deg, rgba(224, 153, 0, 1) 0%, rgba(253, 236, 45, 1) 100%);
     }
 
-    .btn:hover {
-      background: rgba(47, 255, 130, 0.3);
+    button:hover{
+      border: solid 3px rgb(143, 93, 0);
     }
   </style>
 </head>
 <body>
 
-
-<div id="botoes">
-  <button class="btn" onclick="history.back()"  > <a href="https://www.freecodecamp.org/">Voltar</a></button>
-  <button class="btn" onclick="reiniciarJogo()"> Jogar Novamente</button>
-</div>
 
 <canvas id="game" width="1000" height="700"></canvas>
 <div id="info">Peixes: 0 ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Vidas: 3</div>
@@ -180,7 +173,11 @@ function fimDeJogo() {
   jogando = false;
   const g = document.getElementById("gameOver");
   g.style.display = "block";
-  g.innerHTML = ` Suas vidas acabaram!<br>Pontuação Final: ${pontuacao}<br>`;
+  g.innerHTML = ` Suas Vidas Acabaram!<br>Pontuação Final: ${pontuacao}<br> <a href="./pescariamenu.html">
+          <button>Sair</button>
+        </a> <br> <a href="./pescaria.html">
+          <button>Jogar Novamente</button>
+        </a> `; 
 }
 
 function atualizarHUD() {

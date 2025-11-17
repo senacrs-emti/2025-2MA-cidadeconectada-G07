@@ -35,7 +35,7 @@ body, html {
     text-shadow: 2px 2px 8px black;
 }
 
-a button {
+a #btnmenu {
     width: 200px;
     padding: 15px;
     margin: 10px;
@@ -47,6 +47,6 @@ a button {
     background: linear-gradient(0deg, rgba(224, 153, 0, 1) 0%, rgba(253, 236, 45, 1) 100%);
 }
 
-a button:hover{
+a #btnmenu:hover{
     border: solid 4px rgb(143, 93, 0);
 }
