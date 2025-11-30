@@ -5,14 +5,14 @@
     font-style: normal;
     text-shadow: #0b0b0b 3px 0 10px;
     color: white;
-    float: left;
+    float: right;
 
   }
   #titulo {
     animation: 2s anim-popoutin;
     padding-left: -50px;
     z-index: 99;
-    margin-left: 30%;
+    margin-left: -40%;
   }
 
   @keyframes anim-popoutin {
