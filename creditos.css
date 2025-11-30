@@ -7,6 +7,7 @@ header h1{
     text-align: center;
     font-size: 40px;
     margin-top: 20px;
+    z-index: 51;
 }
 
  button {
@@ -118,4 +119,61 @@ header h1{
         opacity: 1;
         }
     }
-     
+  main{
+    width: 100%;
+    height: auto;
+  }
+  img{
+    display: block;
+    padding-left: 3%;
+    padding-right: 3%;
+    width: 95%;
+    height: auto;
+    z-index: 51;
+  }
+
+  body{
+    background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXJhYzYwZmpwZzg4aGtnNWluMGo1OXFrY2JteG1jc2k4NDV2ZXgzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1mBHqSOj3TDsBCZrwS/giphy.gif);
+    background-size: cover;
+  }
+
+#luiza{
+  color: white;
+  display: block;
+  float: left;
+  font-size: 40px;
+  margin-left: 8%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#luiza:hover{
+  font-size: 45px;
+  transition-duration: 0.3s;
+}
+
+#vi{
+  color: white;
+  display: block;
+  float: left;
+  font-size: 40px;
+  margin-left: 18%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#vi:hover{
+  font-size: 45px;
+  transition-duration: 0.3s;
+}
+
+#rafa{
+  color: white;
+  display: block;
+  float: left;
+  font-size: 40px;
+  margin-left: 3%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#rafa:hover{
+  font-size: 45px;
+  transition-duration: 0.3s;
+}
+
+
