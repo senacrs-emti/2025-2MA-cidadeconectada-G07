@@ -1,0 +1,121 @@
+
+   body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #f0f0f0;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.adsttc.com%2Fmedia%2Fimages%2F5446%2Fb5e1%2Fe58e%2Fceb5%2F6700%2F0031%2Flarge_jpg%2F087.jpg%3F1413920199&f=1&nofb=1&ipt=96beb9f45b262bcf55221df0c756cc50e89c776f78efb44bb752c5e0335ab295);
+        background-position: cover;
+    }
+
+
+    #toolbar {
+        margin-bottom: 15px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: -6%;
+    }
+
+    canvas {
+        background: #fff;
+        border: 20px groove rgb(141, 93, 93);
+        cursor: crosshair;
+        width: 80%;
+    }
+
+    button {
+        padding: 8px 12px;
+        cursor: pointer;
+        border: none;
+        background: #333;
+        color: white;
+        border-radius: 4px;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: #555;
+    }
+
+    img{
+        margin-top: -7%;
+    }
+
+  #botao {
+    margin-left: -10%;
+    display: block;
+    float: left;
+  
+    --c: #000000;
+  
+    background: 
+  
+      linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
+  
+      #ffffff;
+  
+    color: #0000;
+  
+    border: none;
+  
+    transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+  
+    text-shadow: 
+  
+      calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
+  
+      calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+  
+    outline-offset: .1em;
+  
+    transition: 0.3s;
+  
+  }
+  
+  #botao:hover,
+  
+  button:focus-visible {
+  
+    --_p: 0%;
+  
+    --_i: 1;
+  
+  }
+  
+  #botao:active {
+  
+    text-shadow: none;
+  
+    color: var(--c);
+  
+    box-shadow: inset 0 0 9e9q #0005;
+  
+    transition: 0s;
+  
+  }
+  
+  
+  #botao {
+    display: block;
+
+    border-radius: 0px;
+  
+    font-family: system-ui, sans-serif;
+  
+    font-weight:bold;
+  
+    font-size: 2rem;
+    
+    margin: 0;
+  
+    cursor: pointer;
+  
+    padding: .1em .3em;
+  
+    z-index: 50;
+  
+  }
