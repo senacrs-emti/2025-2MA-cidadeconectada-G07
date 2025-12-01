@@ -23,7 +23,7 @@
     canvas {
         background: #fff;
         border: 20px groove rgb(141, 93, 93);
-        cursor: crosshair;
+        cursor: url(./img/curpait.png), auto;
         width: 80%;
     }
 
