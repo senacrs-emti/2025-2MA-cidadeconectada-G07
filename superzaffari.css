@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    background-image: url(https://www.grupozaffari.com.br/wp-content/uploads/2016/07/Zaffari-Morumbi-Town-Inauguracao.jpg);
+    background-size: cover;
+}
+.titulo-img {
+    width: 350px;
+    animation: pulsar 3s infinite ease-in-out;
+    margin-top: 50px;
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.menu {
+    margin-top: 40px;
+}
+
+.menu a {
+    display: block;
+    width: 220px;
+    margin: 15px auto;
+    padding: 15px;
+    background: #9c0505;
+background: linear-gradient(0deg, rgba(156, 5, 5, 1) 0%, rgba(253, 45, 76, 1) 100%);
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+    border: solid 4px green;
+}
+
+.menu a:hover {
+    background: #008200;
+background: linear-gradient(0deg, rgba(0, 130, 0, 1) 0%, rgba(105, 255, 64, 1) 100%);
+    scale: 1.05;
+    border: solid 4px red;
+}

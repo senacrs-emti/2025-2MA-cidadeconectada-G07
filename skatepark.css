@@ -9,11 +9,7 @@
       padding-left: 20%;
       
     }
-    #titulo {
-      animation: 2s anim-popoutin;
-      padding-left: -50px;
-      z-index: 99;
-    }
+
   
     @keyframes anim-popoutin {
       0% {
@@ -78,13 +74,13 @@
     display: block;
     float: left;
   
-    --c: #000000; /* text color */
+    --c: #000000;
   
     background: 
   
       linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
   
-      #ffffff; /* background color */
+      #ffffff; 
   
     color: #0000;
   
