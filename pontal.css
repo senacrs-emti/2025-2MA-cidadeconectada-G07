@@ -68,7 +68,7 @@ body{
 .imagem2 {
   display: block;
   float: left;
-  border: solid 2px white;
+  border: 6px groove white;
   height: 300px;
   width: 400px;
 }

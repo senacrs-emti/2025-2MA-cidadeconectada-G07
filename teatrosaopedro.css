@@ -6,7 +6,7 @@
       text-shadow: #0b0b0b 3px 0 10px;
       color: white;
       float: left;
-      padding-left: 31%;
+      padding-left: 30%;
       
     }
     #titulo {
@@ -67,10 +67,10 @@
   
   .imagem2 {
     display: block;
-    border: solid 2px white;
+    border: 6px groove white;
     height: 300px;
     width: 400px;
-    margin-left: 35%;
+    margin-left: 33%;
     
   }
   

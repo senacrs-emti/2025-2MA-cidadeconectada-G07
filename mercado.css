@@ -67,10 +67,10 @@
   
   .imagem2 {
     display: block;
-    border: solid 2px white;
+    border: 6px groove white;
     height: 300px;
     width: 400px;
-    margin-left: 35%;
+    margin-left: 33%;
     
   }
   

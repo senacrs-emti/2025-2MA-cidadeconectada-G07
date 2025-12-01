@@ -5,12 +5,12 @@
     font-style: normal;
     text-shadow: #0b0b0b 3px 0 10px;
     color: white;
-    float: right;
+    float: left;
+    padding-left: 60%;
 
   }
   #titulo {
     animation: 2s anim-popoutin;
-    padding-left: -50px;
     z-index: 99;
     margin-left: -40%;
   }
@@ -68,7 +68,7 @@ body{
 .imagem2 {
   display: block;
   float: left;
-  border: solid 2px white;
+  border: 6px groove white;
   height: 300px;
   width: 400px;
 }
