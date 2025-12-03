@@ -1,0 +1,57 @@
+  body {
+        margin: 0;
+        padding: 0;
+    }
+    h1{
+          font-family: "Rowdies", sans-serif;
+    }
+
+    .map-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('./img/mapa\ completo.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .map-button {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.423);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .map-button:hover {
+        transform: scale(1.1);
+        border: 3px solid greenyellow;
+    }
+
+      header {
+            background: #222;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
